@@ -45,4 +45,40 @@
                     // therefore, f is an array of pointers to functions that each return a pointer to an integer
 ```
 
-## Pointers to Functions
+## Pointers to functions
+
+```C
+    // Sample declaration
+    
+    int f(int);                         // sample function prototype
+    int (*pf)(int) = &f;                // however, int (*pf)(int) = f; is also valid
+                                        // the compiler converts function names to function pointers
+```
+
+```C
+    // Sample invocation (all three are valid)
+    
+    f(25);
+    (*pf)(25);
+    pf(25);
+    
+    // dereferencing the pointer doesn't matter since compiler converts function name back to a function pointer 
+    // before applying the function invocation (i.e. ()) operator anyways. thus, either invocation is valid 
+```
+
+## Uses of function pointers
+
+```C
+    // Callback functions 
+    
+    Node* search(Node *node, void const *value, int (*compare)(void const *, void const *)) {
+        while (node != NULL) {
+            if (compare(&node -> value, value) == 0)
+                break;
+            node = node -> link;
+        }
+        return node;
+    }
+    
+    // passing in the compare function pointer enables this search() function 
+```
