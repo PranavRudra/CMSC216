@@ -80,5 +80,36 @@
         return node;
     }
     
-    // passing in the compare function pointer enables this search() function 
+    // passing in the compare function pointer enables this search() function to be typeless
+    // value and parameters to (*compare) are declared void * since type of data to be compared isn't known
+    
+    // one possible compare function
+    
+    int compare_ints(void const *a, void const *b) {
+        if (*(int *)a == *(int *)b)
+            return 0;
+        return 1;
+    }
+    
+    // a and b are casted to int * before being dereferenced since they are void * variables
+```
+
+```C
+    // Jump tables
+    
+    double add(double, double);
+    double sub(double, double);
+    double mul(double, double);
+    double div(double, double);
+    
+    double (*jump_table[])() = { add, sub, mul, div };
+    
+    // jump_table is an array of pointers to functions that return doubles
+    // now, to invoke the add function we can simply write jump_table[0](5, 5);
+```
+
+## Command line arguments
+
+```C
+    
 ```
