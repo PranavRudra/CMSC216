@@ -110,6 +110,28 @@
 
 ## Command line arguments
 
+- argc indicates the number of space-delimited strings on the line
+- argv points to an array containing pointers to the strings
+- visit pg. 363 in the textbook for a diagram
+
 ```C
+    int main(int argc, char** argv) {}
     
+    // here, if [gcc -c -O main.c insert.c -o test] were entered on the command line then:
+    // argc would contain a value of 7
+    // argv would be an array of 8 elements (last element is a NULL)
+    // argv[0] would be a pointer to an array containing g c c \0, argv[1] would point to array with - c \0 etc...
 ```
+
+## String literals
+
+- when a string literal appears in an expression, it is treated as a pointer constant
+- compiler stores copy of the literal and literal itself points to its first element
+- string literals are read-only
+
+
+```C
+    "xyz" + 1;          // here "xyz" is a pointer to 'x' so "xyz" + 1 gives a pointer to 'y'
+    *"xyz";             // dereferencing the pointer to 'x' gives the character 'x'
+    "xyz"[2];           // the same as *("xyz" + 2), so the expression gives the character 'z'
+``` 
