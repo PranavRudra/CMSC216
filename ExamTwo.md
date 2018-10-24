@@ -4,10 +4,10 @@
 
 ```C
     int f;          // an integer
-    int *f;         // dereferencing f gives us an integer; therefore, f is a pointer to an integer
-    int *f, g;      // f is a pointer to an integer but g is just an integer (g is not dereferenced to give an int)
-    int f();        // invoking f gives us an integer; therefore, f is a function returning an integer
     int f[];        // subscripting f gives us an integer; therefore f is an array of integers
+    int *f;         // dereferencing f gives us an integer; therefore, f is a pointer to an integer
+    int f();        // invoking f gives us an integer; therefore, f is a function returning an integer
+    int *f, g;      // f is a pointer to an integer but g is just an integer (g is not dereferenced to give an int)
     
     int *f();       // operator precedence makes us deal w/ () first
                     // invoking f gives us something that, when dereferenced, gives an integer
