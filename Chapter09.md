@@ -156,7 +156,8 @@
 ```C
     char* strstr(char const *s1, char const *s2);
     
-    // returns a pointer to the character in s1 at which the substring s2 begins or NULL if it doesn't exist
+    // returns a pointer to the character in s1 at which the substring s2 begins or NULL if it doesn't exist.
+    // returns a pointer to the first character of s1 if s2 points to an empty string
     // e.g. strstr("HELLO", "LLO") returns a pointer to the first L in "HELLO" since "LLO" begins from that
     // character
 
