@@ -3,7 +3,7 @@
 ## Error Reporting
 
 - whenever an error occurs, C library functions save an error code in `errno` (an `extern` variable defined in `errno.h`)
-- `perror(char const *message);` prints the message associated with the `errno` code
+- `perror(char const *message);` prints `message` followed by `: ` and then the message associated with the `errno` code
    - message must be non-NULL and point to a valid string
 - `void exit(int status);` terminates program execution with the status code of `status`
 
@@ -30,6 +30,31 @@
 
 - data structure giving a program access to a stream
 - runtime environment must give access to at least three streams: standard input, standard output, standard error
-  - `stdin`: pointer to FILE giving access to standard input
-  - `stdout`: pointer to FILE giving access to standard output
-  - `stderr`: pointer to FILE giving access to standard error
+  - `stdin`: pointer to `FILE` giving access to standard input
+  - `stdout`: pointer to `FILE` giving access to standard output
+  - `stderr`: pointer to `FILE` giving access to standard error
+
+## Stream I/O
+
+- declare a `FILE *` for each file that must be simultaneously opened
+- call `fopen()` and set your `FILE *` above to the return value
+- process the file
+- dall `fclose()` on the `FILE *` to release it for reuse with another file
+
+```C
+    FILE * fopen(char const *name, char const *mode);
+    
+    // opens a file and associates a stream with it (saving return value in a FILE * variable links it to this stream)
+    // return value is NULL if the operation fails
+    
+    // name: name of the file
+    // mode: 'r', 'w', 'a' (read, write, append) for text files or 'rb', 'wb', 'ab' (read, write, append) for binary files
+    
+    // example
+    FILE *input;
+    input = fopen("data.txt", 'r');
+    if (input == NULL) {
+        perror("data.txt");
+        exit(EXIT_FAILURE);
+    }
+````
