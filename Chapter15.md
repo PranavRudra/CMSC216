@@ -60,3 +60,21 @@
     }
     // the error message could look like: data.txt: No such file or directory
 ````
+
+```C
+    int fclose(FILE *f);
+    
+    // flushes the buffer before the file is closed
+    // returns 0 if there were no errors
+    
+    // f: FILE * returned by fopen()
+    
+    //example
+    FILE *input;
+    ...
+    
+    if (fclose(input) != 0) {
+        perror("fclose");
+        exit(EXIT_FAILURE);
+    }
+```
