@@ -21,9 +21,10 @@
 ### Buffers
 
 - area of memory data is copied into before being *flushed* or written to final destination (increases I/O speed)
-- *unbuffered*: data is written directly to final destination without buffer
-- *line buffering*: buffer is flushed when newline character is read
-- *block buffering*: buffer is flushed in blocks of arbitrary size
+- types:
+  - *unbuffered*: data is written directly to final destination without buffer
+  - *line buffering*: buffer is flushed when newline character is read
+  - *block buffering*: buffer is flushed in blocks of arbitrary size
 
 ### FILEs
 
