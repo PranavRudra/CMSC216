@@ -58,4 +58,5 @@
         perror("data.txt");
         exit(EXIT_FAILURE);
     }
+    // the error message could look like: data.txt: No such file or directory
 ````
