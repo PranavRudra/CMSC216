@@ -48,7 +48,7 @@
     // return value is NULL if the operation fails
     
     // name: name of the file
-    // mode: 'r', 'w', 'a' (read, write, append) for text files or 'rb', 'wb', 'ab' (read, write, append) for binary files
+    // mode: 'r', 'w', 'a' (read, write, append) for text files or 'rb', 'wb', 'ab' for binary files
     
     // example
     FILE *input;
