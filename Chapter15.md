@@ -52,6 +52,7 @@
     
     // example
     FILE *input;
+    
     input = fopen("data.txt", 'r');
     if (input == NULL) {
         perror("data.txt");
