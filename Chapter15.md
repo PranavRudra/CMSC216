@@ -44,7 +44,7 @@
 ```C
     FILE * fopen(char const *name, char const *mode);
     
-    // opens a file and associates a stream with it (saving return value in a FILE * variable links it to this stream)
+    // opens a file and associates a stream with it (saving return value links the FILE pointed to by the variable with this stream)
     // return value is NULL if the operation fails
     
     // name: name of the file
