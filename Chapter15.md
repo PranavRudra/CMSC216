@@ -157,11 +157,40 @@
 ```C
     size_t fread(void *buffer, size_t size, size_t count, FILE *stream);
     
-    // reads count elements of size size from stream
+    // reads count elements of size size from stream into buffer
     // buffer: array of one or more values
     // size: size of each value
     // count: number of elements to be read
     // returns the number of elements (NOT bytes) successfully read
 ```
 
+### Output
+```C
+    size_t fwrite(void *buffer, size_t size, size_t count, FILE *stream);
+    
+    // writes count elements of size size from buffer into stream
+    // buffer: array of one or more values
+    // size: size of each value
+    // count: number of elements to be read
+    // returns the number of elements (NOT bytes) successfully written
+```
 
+## Flushing and Seeking
+
+- `int fflush(FILE *stream)`: forces buffer to be written to stream even if buffer isn't full
+- `long ftell(FILE *stream)`: returns offset from beginning of stream at which next read/write will occur (in bytes)
+- `int fseek(FILE *stream, long offset, int from)`:
+  - changes the position as the next read/write will occur
+  - if `from` is `SEEK_SET`, `offset` bytes will be sought from beginning of stream (`offset` must be >=0)
+  - if `from` is `SEEK_CUR`, `offset` bytes will be sought from current location in stream (`offset` can be positive or negative)
+  - if `from` is `SEEK_END`, `offset` bytes will be sought from the end of the stream (`offset` may be positive or negative)
+  - side effects:
+    - EOF indicator of the stream is cleared
+    - ugotten characters are forgotten
+    - enables switching from reading/writing on streams opened for update
+
+## Stream Error
+
+- `int feof(FILE *stream)`: returns true if stream is at EOF
+- `int clearerr(FILE *stream)`: resets error indication of stream
+- `int ferror(FILE *stream)`: returns true if any read/write errors have occurred on stream
