@@ -14,7 +14,6 @@
 - abstraction for I/O device interaction presented as a sequence of data concerned with input or output
 - *text stream*: sequence of characters terminated by a newline (on UNIX machines)
    - on systems with differing definitions of text, library functions translate between representations
-   - for example, Windows writes newlines as a pair of carriage return/newline characters
 - *binary stream*: sequence of bytes
    - binary data is NOT modified by library functions (this guarantee does not exist with text data)
 
@@ -29,22 +28,22 @@
 ### FILEs
 
 - data structure giving a program access to a stream
-- runtime environment must give access to at least three streams: standard input, standard output, standard error
-  - `stdin`: pointer to `FILE` giving access to standard input
-  - `stdout`: pointer to `FILE` giving access to standard output
-  - `stderr`: pointer to `FILE` giving access to standard error
+- access to 3 streams is guaranteed
+  - `stdin`: `FILE *` for standard input
+  - `stdout`: `FILE *` for standard output
+  - `stderr`: `FILE *` for standard error
 
 ## Stream I/O
 
 - declare a `FILE *` for each file that must be simultaneously opened
 - call `fopen()` and set your `FILE *` above to the return value
 - process the file
-- dall `fclose()` on the `FILE *` to release it for reuse with another file
+- call `fclose()` on the `FILE *` to release it for reuse with another file
 
 ```C
     FILE * fopen(char const *name, char const *mode);
     
-    // opens a file and associates a stream with it (saving the return value links the FILE * with this stream)
+    // opens a file and associates a stream with it
     // return value is NULL if the operation fails
     
     // name: name of the file
@@ -77,4 +76,11 @@
         perror("fclose");
         exit(EXIT_FAILURE);
     }
+```
+
+## Character I/O
+
+```C
+    int fgetc(FILE * stream);   // reads a character from stream and returns it if operation worked (or EOF otherwise)
+    int getchar(void);          // reads a character from stdin and returns it if operation worked (or EOF otherwise)
 ```
