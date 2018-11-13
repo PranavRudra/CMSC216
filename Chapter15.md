@@ -182,8 +182,8 @@
 - `int fseek(FILE *stream, long offset, int from)`:
   - changes the position as the next read/write will occur
   - if `from` is `SEEK_SET`, `offset` bytes will be sought from beginning of stream (`offset` must be >=0)
-  - if `from` is `SEEK_CUR`, `offset` bytes will be sought from current location in stream (`offset` can be positive or negative)
-  - if `from` is `SEEK_END`, `offset` bytes will be sought from the end of the stream (`offset` may be positive or negative)
+  - if `from` is `SEEK_CUR`, `offset` bytes will be sought from current location in stream (`offset` can be >0 or <0)
+  - if `from` is `SEEK_END`, `offset` bytes will be sought from the end of the stream (`offset` may be >0 or <0)
   - side effects:
     - EOF indicator of the stream is cleared
     - ugotten characters are forgotten
