@@ -82,7 +82,7 @@
 
 ### Input
 ```C
-    int fgetc(FILE * stream);   // reads a character from stream and returns it if operation worked (or EOF otherwise)
+    int fgetc(FILE *stream);   // reads a character from stream and returns it if operation worked (or EOF otherwise)
     int getchar(void);          // reads a character from stdin and returns it if operation worked (or EOF otherwise)
     
     // return value is int instead of char because EOF is denoted by a value outside the range of a character
@@ -90,14 +90,78 @@
 
 ### Output
 ```C
-    int fputc(int character, FILE * stream);    // writes character to stream and returns EOF if operation fails
+    int fputc(int character, FILE *stream);    // writes character to stream and returns EOF if operation fails
     int putchar(int character);                 // writes character to stdout and returns EOF if operation fails
 ```
 
 ### Undoing I/O
 ```C
-    int ungetc(int character, FILE * stream);
+    int ungetc(int character, FILE *stream);
     
     // Pushes back a character to a stream so that getc() will return that character again
     // Changing stream position with fseek() will discard ungotten characters
 ```
+
+## Unformatted Line I/O
+
+### Input
+```C
+    char *fgets(char * buffer, int buffer_size, FILE * stream);
+
+    // fgets reads characters from stream and copies them into buffer until:
+    // a) a newline character is read (and copied into the buffer) OR
+    // b) buffer_size - 1 characters have been read (and copied into buffer)
+    // in both cases, a NULL character is placed in buffer[buffer_size]
+    
+    // returns pointer to same array if operation is successful and NULL otherwise
+```
+
+### Output
+```C
+    int fputs(char const *buffer, FILE * stream);
+    
+    // fputs writes the characters in buffer as-is to stream
+    // buffer MUST be a valid, NULL-terminated string
+    // i.e. if buffer has 0, 1, or n newlines, fputs will write 0, 1, or n newlines
+    
+    // returns >=0 if operation is successful and EOF otherwise
+```
+
+## Formatted Line I/O
+
+### scanf Family
+```C
+    int fscanf(FILE * stream, char const *format, ...);
+    int scanf(char const *format, ...);
+    int sscanf(char const *string, char const *format, ...);
+    
+    // fscanf: reads format from stream into given variables and returns number of variables successfully read into
+    // scanf: reads format from stdin into given variables and returns number of variables successfully read into
+    // sscanf: reads format from string into given variables and returns number of variables successfully read into
+```
+
+### printf Family
+```C
+    int fprintf(FILE *stream, char const *format, ...);
+    int printf(char const *format, ...);
+    int sprintf(char *buffer, char const *format, ...);
+    
+    // fprintf: writes variable-interpolated format string to stream
+    // printf: writes variable-interpolated format string to stdout
+    // sprintf: writes variable interpolated format string into buffer array (must ensure buffer is large enough)
+```
+
+## Binary I/0
+
+### Input
+```C
+    size_t fread(void *buffer, size_t size, size_t count, FILE *stream);
+    
+    // reads count elements of size size from stream
+    // buffer: array of one or more values
+    // size: size of each value
+    // count: number of elements to be read
+    // returns the number of elements (NOT bytes) successfully read
+```
+
+
