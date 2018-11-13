@@ -80,7 +80,24 @@
 
 ## Character I/O
 
+### Input
 ```C
     int fgetc(FILE * stream);   // reads a character from stream and returns it if operation worked (or EOF otherwise)
     int getchar(void);          // reads a character from stdin and returns it if operation worked (or EOF otherwise)
+    
+    // return value is int instead of char because EOF is denoted by a value outside the range of a character
+```
+
+### Output
+```C
+    int fputc(int character, FILE * stream);    // writes character to stream and returns EOF if operation fails
+    int putchar(int character);                 // writes character to stdout and returns EOF if operation fails
+```
+
+### Undoing I/O
+```C
+    int ungetc(int character, FILE * stream);
+    
+    // Pushes back a character to a stream so that getc() will return that character again
+    // Changing stream position with fseek() will discard ungotten characters
 ```
