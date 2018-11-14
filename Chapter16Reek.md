@@ -55,3 +55,27 @@
     // range error: error that occurs if function result is too large or too small to be stored in double
     // i.e. exp(DBL_MAX) will cause range error since the output is too large to be stored in a double
 ```
+
+## Execution Environment
+
+### Terminating Execution (stdlib.h)
+```C
+    void abort(void);                   // terminates program abnormally by sending the SIGABRT signal
+    void atexit(void (func)(void));     // registers an exit function (function cannot call exit())
+    
+    // exit functions are invoked before a program terminates when `exit()` is called
+    
+    exit(int status);                   // terminates the program with the given status code
+
+    // registered exit functions are called in reverse order
+    // all buffers are flushed
+    // all open files are closed
+    // removes all temporary files
+    // exit status is returned to host environment
+```
+
+### Assertions (assert.h)
+```C
+    
+```
+ 
