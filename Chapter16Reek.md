@@ -76,6 +76,24 @@
 
 ### Assertions (assert.h)
 ```C
+    void assert(int expression);
     
+    // if expression evaluates to false program terminates and message printed to stdout
+    // using #define NDEBUG in source or -D NDEBUG on command line tells preprocessor to 
+    // remove all assert statements (should only use when your code is fully tested)
+```
+
+### Environment (stdlib.h)
+```C
+    char *getenv(char const *name);
+    
+    // environment is implementation-defined key-value list of pairs maintained by OS
+    // getenv() searches for the key name and returns pointer to value if name exists
+    // if name doesn't exist as a key in the environment, getenv() returns NULL pointer
+```
+
+### System Commands (stdlib.h)
+```C
+    void system(char const *command);   // executes command by system's command processor
 ```
  
