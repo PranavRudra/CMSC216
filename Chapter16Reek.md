@@ -52,6 +52,6 @@
     // domain error: error that occurs if function argument is NOT within a certain range
     // i.e. sqrt(-5.0); causes domain error since square roots of negative numbers are undefined
     
-    // range error: error that occurs if result of a function is too large or too small to be stored in double
+    // range error: error that occurs if function result is too large or too small to be stored in double
     // i.e. exp(DBL_MAX) will cause range error since the output is too large to be stored in a double
 ```
