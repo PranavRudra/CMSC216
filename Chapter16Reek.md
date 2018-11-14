@@ -94,6 +94,31 @@
 
 ### System Commands (stdlib.h)
 ```C
-    void system(char const *command);   // executes command by system's command processor
+    void system(char const *command);           // executes command by system's command processor
+```
+
+## Searching and Sorting
+```C
+    void qsort(void *base, size_t n_elements, size_t el_size, int (*compare)(void const*, void const*));
+    
+    // base: array of elements to be sorted
+    // n_elements: number of elements in base
+    // el_size: size of each element in base
+    // compare: pointer to comparator function
+    
+    // example
+    
+    typedef struct {
+        char key[10];
+        int data;
+    } Record;
+    
+    int r_compare(void const *a, void const *b) {
+        return strcmp((Record *) a -> key, (Record *) b -> key);
+    }
+    
+    Record array[50];
+    
+    qsort(array, 50, sizeof(Record), r_compare);    // sorts array by key field in Record
 ```
  
