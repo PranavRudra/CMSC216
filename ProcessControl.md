@@ -91,7 +91,7 @@
     
     pid_t wait(int *status);
     
-    // reaps any terminated child process
+    // reaps any single terminated child
     // saves exit status of child process in status (unless NULL is passed in)
     // blocking wait - parent waits until child process terminates before continuing
     // returns -1 on error (i.e. no unreaped children exist) and process ID of reaped child on success
