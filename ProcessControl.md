@@ -91,3 +91,20 @@
     // returns -1 on error (i.e. no unreaped children exist) and process ID of reaped child on success
 ```
 
+### execv()
+
+```C
+    int execv(char *progname, char *argv[]);
+    
+    // runs the program whose name is in progname with the CLI arguments given in argv
+    // argv must end with a NULL pointer
+    // returns -1 (and sets errno) on failure
+    // never returns on success (since its running a different program) 
+    
+    // example
+    char *program = "/bin/ls";
+    char *argv[] = {"ls", "-l", NULL};
+    
+    execv(program, argv);
+```
+
