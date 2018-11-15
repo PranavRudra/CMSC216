@@ -71,3 +71,29 @@
     pid_t getpid(void);     // returns ID of current process
     pid_t getppid(void);    // returns ID of parent process
 ```
+
+### Reaping
+
+- kernel doesn't remove a terminated process until it is *reaped* by its parent process
+- child process that isn't reaped by parent is called a *zombie process*  
+  - reaping is beneficial since zombie processes take up memory and resources
+- if parent terminates before child, child becomes *orphan process* and *init* becomes its new parent
+
+```C
+    #include <sys/types.h>
+    #include <sys/wait.h>
+    pid_t wait_pid(pid_t pid, int *status, int options);
+    
+    // reaps the child process with the ID pid
+    // saves exit status of child process in status (unless NULL is passed in)
+    // options = 0 causes a blocking wait (parent waits until child terminates before continuing)
+    // options = WNOHANG causes a non-blocking wait (parent executes without waiting for child's termination)
+    
+    pid_t wait(int *status);
+    
+    // reaps any terminated child process
+    // saves exit status of child process in status (unless NULL is passed in)
+    // blocking wait - parent waits until child process terminates before continuing
+    // returns -1 on error (i.e. no unreaped children exist) and process ID of reaped child on success
+```
+
