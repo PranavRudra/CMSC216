@@ -28,13 +28,7 @@
 
 ### Signals
 
-- message to process to notify it of an event
-- sample kernel-sent signals
-  - `SIGSEGV`: segmentation fault
-  - `SIGILL`: illegal instruction
-- sample user-sent signals
-  - `SIGINT`: user-interrupt (Ctrl-C)
-  - `SIGTSTP`: terminal stop (Ctrl-Z)
+- message to process to notify it of an event (i.e. `SIGILL` is sent by kernel to indicate illegal instruction)
 
 ## Linux Commands
 
