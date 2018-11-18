@@ -11,7 +11,7 @@
     - *internal fragmentation*: memory wasted within a memory allocation
     - *external fragmentation*: memory wasted between memory allocations
 
-## Allocation Strategy
+### Allocation Strategy
 
 - *first fit* is storing data in the first possible free block 
 - *best fit* is storing data in the free block minimizing fragmentation
