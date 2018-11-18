@@ -5,7 +5,9 @@
 - unidirectional IPC channel with a read and a write end
 - pipe's file descriptors only visible to process that created pipe and its descendants
 - reads on pipe without write end open return `EOF` while writes on pipe w/o open read end cause error
-- pipe I/O is blocking (i.e. `read()` doesn't return until data is in pipe and `write()` doesn't write until suifficient space exists to write)
+- pipe I/O is blocking
+  - `read()` doesn't read data until data is in pipe 
+  - `write()` doesn't write until enough space exists
 
 ```C
     #include <unistd.h>
