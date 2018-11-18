@@ -106,7 +106,7 @@
 
 ### Input
 ```C
-    char *fgets(char *buffer, int buffer_size, FILE * stream);
+    char *fgets(char *buffer, int buffer_size, FILE *stream);
 
     // fgets reads characters from stream and copies them into buffer until:
     // a) a newline character is read (and copied into the buffer) OR
@@ -118,7 +118,7 @@
 
 ### Output
 ```C
-    int fputs(char const *buffer, FILE * stream);
+    int fputs(char const *buffer, FILE *stream);
     
     // fputs writes the characters in buffer as-is to stream
     // buffer MUST be a valid, NULL-terminated string
