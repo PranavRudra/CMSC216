@@ -106,7 +106,7 @@
 
 ### Input
 ```C
-    char *fgets(char * buffer, int buffer_size, FILE * stream);
+    char *fgets(char *buffer, int buffer_size, FILE * stream);
 
     // fgets reads characters from stream and copies them into buffer until:
     // a) a newline character is read (and copied into the buffer) OR
