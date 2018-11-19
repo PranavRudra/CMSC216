@@ -6,7 +6,7 @@
 ```C
     int abs(int value);             // returns absolute value of value
     
-    div_int div(int numerator, int denominator);
+    div_t div(int numerator, int denominator);
     
     // returns a div_int struct with two fields: quot and rem
     // quot represents quotient of the division
