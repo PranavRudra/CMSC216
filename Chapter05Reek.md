@@ -67,4 +67,28 @@
   - rightmost n bits of a are discarded
   - leftmost n bits of a are zeroes
   - value of a does NOT change
-  - a >> n = a / 2 ^ n
+  - a >> n = a / (2 ^ n);
+
+## Bitwise Operators
+
+- bitwise operations do NOT change operands UNLESS there is an assignment operation involved
+- bitwise AND (&) : returns 1 if both sides evaluate to 1 and 0 otherwise
+- bitwise OR (|): returns 0 if both sides evaluate to 0 and 1 otherwise
+- bitwise COMPLEMENT (~): flips the bit (0 --> 1 or 1 --> 0)
+- bitwise XOR (^): returns 1 if both sides evaluate differently (i.e. one 0 and other 1) and 0 otherwise
+
+## Mixted Type Assignments
+
+- rvalue data is converted to lvalue type if the types are different (can lead to loss of information)
+
+```C
+    float f = 2.25;
+    float g = 4.99;
+    int i = f;          // assigns 2 to i
+    int j = g;          // assigns 4 to g
+    
+    unsigned int x, y;
+    unsigned char z;
+    y = oxface;
+    x = z = y;          // right-to-left associativity so x and z BOTH get a converted value of 0xface
+```
