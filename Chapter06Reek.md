@@ -19,7 +19,7 @@
     *p = 5;             // works fine
     p = &y;             // CANNOT reassign p since it's a constant pointer
 
-    const int * q;      // indicates that q is a pointer to an integer constant
+    const int *q;      // indicates that q is a pointer to an integer constant
     q = &k;             // works fine
     *q = 10;            // CANNOT change value of variable pointer to be q
     
