@@ -25,9 +25,6 @@
 - name of the array is treated as a **constant pointer** to the first element in array
 
 ```C
-    // NOTE: *(arr + k) = arr[k] AND &arr[k] = arr + k
-    // NOTE: subscripts can be used with a pointer as well
-    
     int i, arr[5] = { 10, 20, 30, 40, 50 };
     int *p;
     
