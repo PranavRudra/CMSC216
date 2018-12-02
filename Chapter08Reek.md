@@ -20,9 +20,9 @@
 
 ## Array Arguments
 
-- array name is decayed to a pointer to the first element if passed into a function
 - size is ignored if present in function header (i.e. 5 ignored in `func(int a[5]);`)
 - name of the array is treated as a **constant pointer** to the first element in array
+- array name and pointer are interchangeable only in the case of **function parameters**
 
 ```C
     int i, arr[5] = { 10, 20, 30, 40, 50 };
@@ -47,4 +47,21 @@
     arr++;                      // ILLEGAL since arr is treated as a constant pointer
     *(arr + 5);                 // SEGFAULT likely since arr + 5 points to region outside of array
     *(arr - 1);                 // SEGFAULT likely since arr - 1 points to region outside of array
+```
+
+```C
+    void f(const int a[]) {
+        printf("%d\n", (int) sizeof(a));        // prints size of a pointer on the machine
+    }
+    
+    void g(int *a) {
+        printf("%d\n", (int) sizeof(a));        // prints size of a pointer on the machine
+    }
+    
+    int main(void) {
+        int arr[5] = { 1, 2, 3, 4, 5 };
+        int *p = arr;
+        printf("%d\n", (int) sizeof(arr));      // prints size of a pointer on the machine
+        printf("%d\n", (int) sizeof(arr));      // prints size of integer on machine * 5 (total size of array)
+    }
 ```
