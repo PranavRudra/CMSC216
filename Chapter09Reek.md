@@ -116,7 +116,7 @@
     
     // example
     
-    strcmp("abcdef", "ABCDEF"); 
+    strncmp("abcdef", "ABCDEF"); 
     
     // returns >0. the first differing character between s1 and s2 is 'a' vs. 'A'. since the ASCII value 
     // of 'a' (97) is greater than 'A' (65), s1 > s2. thus, s1 comes before s2 lexicographically
