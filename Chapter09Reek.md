@@ -71,7 +71,7 @@
     char* strcat(char* dst, char const *src);
     
     // Concatenates the contents of src to dst and then returns a pointer to dst 
-    // e.g. if message contains M E S S A G E \0 \0 \0, strcpy(message, "HI") returns a pointer to message,
+    // e.g. if message contains M E S S A G E \0 \0 \0, strcat(message, "HI") returns a pointer to message,
     // which has been modified to contain the string M E S S A G E H I \0. everything beyond
     // the first '\0' is essentially ignored by other function calls
     
