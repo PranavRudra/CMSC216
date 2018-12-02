@@ -26,6 +26,7 @@
 
 ```C
     // NOTE: *(arr + k) = arr[k] AND &arr[k] = arr + k
+    // NOTE: subscripts can be used with a pointer as well
     
     int i, arr[5] = { 10, 20, 30, 40, 50 };
     int *p;
@@ -41,4 +42,12 @@
     *(arr + 3) = 80;            // array is now { 70, 20, 60, 80, 40 }
     
     arr[1] = &arr[4] - arr;     // array is now { 70, 4, 60, 80, 40 }
+    
+    p = arr + 2;
+    p[2] = 100;                 // array is now { 70, 4, 60, 80, 100 }
+    p[-1] = 10;                 // array is now { 70, 10, 60, 80, 100 }
+    
+    arr++;                      // ILLEGAL since arr is treated as a constant pointer
+    *(arr + 5);                 // SEGFAULT likely since arr + 5 points to region outside of array
+    *(arr - 1);                 // SEGFAULT likely since arr - 1 points to region outside of array
 ```
