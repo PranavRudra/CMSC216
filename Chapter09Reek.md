@@ -123,7 +123,7 @@
 ```
 
 ```C
-    int strcmp(char* const s1, char* const s2, size_t len);
+    int strncmp(char* const s1, char* const s2, size_t len);
     
     // returns 0 if the first len characters of s1 and s2 are equal
     // returns >0 if s1 > s2 for the first len characters of s1, s2
