@@ -4,7 +4,8 @@
 
 - strings are stored as either:
   - null-terminated character arrays
-  - read-only literals (i.e. "xyz")
+  - read-only literals (i.e. char str[] = "xyz")
+- all other forms of array declaration can be used as well (just make sure to include terminating NULL)
 
 ## String length
 
