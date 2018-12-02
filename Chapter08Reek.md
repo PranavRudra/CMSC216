@@ -22,3 +22,23 @@
 
 - array name is decayed to a pointer to the first element if passed into a function
 - size is ignored if present in function header (i.e. 5 ignored in `func(int a[5]);`)
+- name of the array is treated as a **constant pointer** to the first element in array
+
+```C
+    // NOTE: *(arr + k) = arr[k] AND &arr[k] = arr + k
+    
+    int i, arr[5] = { 10, 20, 30, 40, 50 };
+    int *p;
+    
+    p = &arr[2];
+    *p = 60;                    // array is now { 10, 20, 60, 40, 50 }
+    
+    p = arr;
+    *p = 70;                    // array is now { 70, 20, 60, 40, 50 }
+    
+    arr[4] = *(arr + 3);        // array is now { 70, 20, 60, 40, 40 }
+    
+    *(arr + 3) = 80;            // array is now { 70, 20, 60, 80, 40 }
+    
+    arr[1] = &arr[4] - arr;     // array is now { 70, 4, 60, 80, 40 }
+```
