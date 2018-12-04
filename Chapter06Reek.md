@@ -40,7 +40,7 @@
     
     // assume each of the following statements is independent
     
-    *p--;   // decrements p to point to 4 bytes before start of array and then dereferences (likely segfault)
+    *p--;   // decrements p to point to before start of array and then dereferences (likely segfault)
     *p++;   // increments p to point to index 1 and then dereferences p, giving 1
     (*p)++; // dereferences p, giving 0, and then increments, making array {1, 1, 2}
     (*p)--; // dereferences p, giving 0, and then decrements, making array {-1, 1, 2}
