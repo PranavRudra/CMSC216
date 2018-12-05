@@ -8,7 +8,7 @@
     
     div_t div(int numerator, int denominator);
     
-    // returns a div_int struct with two fields: quot and rem
+    // returns a div_t struct with two fields: quot and rem
     // quot represents quotient of the division
     // rem represents remainder of the division
 ```
