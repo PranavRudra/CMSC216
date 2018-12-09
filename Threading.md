@@ -90,6 +90,7 @@
 ## Semaphores (semaphore.h)
 
 - *critical section*: instructions that should NOT have execution of other threads interleaved with them
+- *race conditions*: program depends on a thread reaching a point X before another thread reaches a point
 - *semaphores* are special global variables with integer counters that are changed by two atomic operations
   - P(s) or *wait operation*
     - blocks calling thread until the counter of s is greater than 0
@@ -106,3 +107,9 @@
     
     // all functions return 0 on sucess and nonzero on error
 ```
+
+## Synchronization
+
+- *mutual exclusion*: one thread executing a critical section blocks the others (implemented via binary semaphores)
+- *condition synchronization*: thread can only access critical section if it satisfies some condition
+  - usually implemented via non-binary semaphores
