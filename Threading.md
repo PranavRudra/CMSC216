@@ -100,7 +100,7 @@
     - may cause a thread blocked to unblock
 
 ```C
-    int sem_init(sem_t *sem, 0, unsigned int value);        // initializes semaphore to value (use 1 for binary semaphore)
+    int sem_init(sem_t *sem, 0, unsigned int value);        // initializes initial value to value (use 1 for binary semaphore)
     int sem_wait(sem_t *sem);                               // performs the P(s) wait operation on the semaphore
     int sem_post(sem_t *sem);                               // performs the V(s) post operation on the semaphore
     
