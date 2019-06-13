@@ -61,7 +61,7 @@
     int main(void) {
         int arr[5] = { 1, 2, 3, 4, 5 };
         int *p = arr;
-        printf("%d\n", (int) sizeof(p));      // prints size of a pointer on the machine
+        printf("%d\n", (int) sizeof(p));        // prints size of a pointer on the machine
         printf("%d\n", (int) sizeof(arr));      // prints size of integer on machine * 5 (total size of array)
     }
 ```
