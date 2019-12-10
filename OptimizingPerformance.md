@@ -12,7 +12,7 @@
 
 ## Compiler Optimizations
 
-- *constant folding*: evaluating expressions with constant operands at compile time (i.e. return 8 instead of return 3 + 5)
+- *constant folding*: evaluating expressions with constant operands at compile time (i.e. return 8 instead of 3 + 5)
 - *dead code elimination*: compiler will delete code that is unreachable or unused code (i.e. unused variable assignments)
 - *loop unrolling*: increasing the size of the loop body (and reducing iteration count) to enable the pipeline to full
 
